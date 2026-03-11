@@ -1,0 +1,12 @@
+{
+  "app": "npx ts-node --prefer-ts-exts packages/infra/bin/app.ts",
+  "watch": {
+    "include": ["packages/infra/**"],
+    "exclude": ["node_modules", "dist", "**/*.d.ts", "**/*.js"]
+  },
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/core:target-partitions": ["aws"]
+  }
+}

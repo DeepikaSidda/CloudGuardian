@@ -1,0 +1,48 @@
+import { ResourceType, ActionType } from "./types";
+
+/**
+ * Maps each resource type to its allowed actions.
+ * IAM users and roles have no direct actions (manual review recommended).
+ */
+export const RESOURCE_ACTION_MAP: Record<ResourceType, ActionType[]> = {
+  EC2Instance: ["terminate", "stop"],
+  EBSVolume: ["delete"],
+  ElasticIP: ["release"],
+  LoadBalancer: ["delete"],
+  SecurityGroup: ["delete"],
+  IAMUser: [],
+  IAMRole: [],
+  LambdaFunction: ["delete"],
+  RDSInstance: ["stop", "delete"],
+  ECSService: ["stop"],
+  NATGateway: ["delete"],
+  CloudWatchLogGroup: ["delete"],
+  S3Bucket: ["delete"],
+  VPC: [],
+  Subnet: [],
+  SNSTopic: ["delete"],
+  SQSQueue: ["delete"],
+  DynamoDBTable: ["delete"],
+  CloudFrontDistribution: [],
+  AutoScalingGroup: ["delete"],
+  ECSCluster: ["delete"],
+  StepFunction: ["delete"],
+  CloudFormationStack: ["delete"],
+  APIGatewayRestAPI: ["delete"],
+  APIGatewayHttpAPI: ["delete"],
+  Route53HostedZone: ["delete"],
+  EFSFileSystem: ["delete"],
+  ECRRepository: ["delete"],
+  ElastiCacheCluster: ["delete"],
+  EventBridgeRule: ["delete"],
+  KinesisStream: ["delete"],
+  CognitoUserPool: ["delete"],
+  SecretsManagerSecret: ["delete"],
+  ACMCertificate: ["delete"],
+  KMSKey: [],
+  WAFWebACL: ["delete"],
+  CodePipeline: ["delete"],
+  CodeBuildProject: ["delete"],
+  CodeCommitRepo: ["delete"],
+  AmplifyApp: ["delete"],
+};

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+    "paths": {
+      "@governance-engine/shared": ["../shared/src"],
+      "@governance-engine/shared/*": ["../shared/src/*"]
+    }
+  },
+  "include": ["src/**/*", "bin/**/*"],
+  "references": [
+    { "path": "../shared" }
+  ]
+}

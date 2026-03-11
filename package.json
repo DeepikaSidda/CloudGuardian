@@ -1,0 +1,33 @@
+{
+  "name": "aws-account-governance-engine",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/backend",
+    "packages/infra",
+    "packages/frontend"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "build:shared": "npm run build -w packages/shared",
+    "build:backend": "npm run build -w packages/backend",
+    "build:frontend": "npm run build -w packages/frontend",
+    "build:infra": "npm run build -w packages/infra",
+    "dev": "npm run dev -w packages/frontend",
+    "test": "npm run test --workspaces",
+    "test:shared": "npm run test -w packages/shared",
+    "test:backend": "npm run test -w packages/backend",
+    "test:frontend": "npm run test -w packages/frontend",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "tsc --build packages/shared packages/backend packages/infra",
+    "bundle": "node packages/backend/esbuild.mjs",
+    "cdk:deploy": "npx cdk deploy --require-approval never",
+    "cdk:diff": "npx cdk diff",
+    "cdk:synth": "npx cdk synth"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.0"
+  }
+}
