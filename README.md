@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="image-mh.png" alt="CloudGuardian" width="500" />
+  <img src="image-mh.png" alt="CloudGuardian" width="800" />
 </p>
 
 <h1 align="center">CloudGuardian</h1>
