@@ -4,11 +4,24 @@
 
 <h1 align="center">CloudGuardian</h1>
 <p align="center"><strong>Keep Your Cloud Clean</strong></p>
+
 <p align="center">
   An intelligent AWS governance engine that continuously scans your cloud infrastructure, detects waste, security risks, and forgotten resources — then helps you fix them.
 </p>
 
 ---
+
+## 🔗 Access the Live Project
+
+You can explore the live version of **CloudGuardian** here:
+
+👉 https://d2ehkpg4m5melv.cloudfront.net/
+
+⚠️ **Note:**  
+This deployment is connected to **my personal AWS account**, so the dashboard, resources, and findings shown reflect my own AWS environment.
+
+---
+
 
 ## What is CloudGuardian?
 
