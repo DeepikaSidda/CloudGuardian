@@ -252,54 +252,6 @@ aws lambda update-function-code --function-name GovernanceEngine-FailScan --zip-
 
 
 
-## Configuration
-
-### Scan Schedule
-
-By default, scans run every 6 hours via EventBridge. You can change this in `packages/infra/src/governance-stack.ts`:
-
-```typescript
-const scanSchedule = props.scanSchedule ?? "cron(0 */6 * * ? *)";
-```
-
-### Email Reports
-
-Weekly email digests are sent every Monday at 8am UTC. To enable:
-
-1. Verify your email address in Amazon SES
-2. Set the `sesEmailIdentity` prop when deploying the stack
-3. Configure the recipient email in the Settings page
-
-### Amazon Bedrock (AI Features)
-
-The AI features (cost insights, recommendation analysis, chat assistant, email digests) use Amazon Bedrock with the `amazon.nova-lite-v1:0` model in `us-east-1`. To enable:
-
-1. Go to the Amazon Bedrock console in `us-east-1`
-2. Request access to the **Amazon Nova Lite** model
-3. The Lambda execution role already has `bedrock:InvokeModel` permissions
-
-If Bedrock is not enabled, the app works fine — AI features will gracefully show "AI unavailable" messages.
-
-### Cost Explorer
-
-The billing dashboard requires Cost Explorer to be enabled in your AWS account:
-
-1. Go to AWS Billing Console → Cost Explorer
-2. Click "Enable Cost Explorer" (takes up to 24 hours to populate data)
-3. Billing data is cached in DynamoDB for 6 hours to minimize API costs ($0.01 per Cost Explorer API call)
-
-### Custom Governance Policies
-
-Create policies from the **Policies** page in the dashboard. Each policy consists of:
-
-- **Resource Type** — Which AWS resource to evaluate (e.g., EC2Instance, S3Bucket)
-- **Condition** — A property + operator + value rule (e.g., `Tags.Environment exists`, `InstanceType equals t2.micro`)
-- **Severity** — Risk level assigned to violations (Low, Medium, High)
-
-Available condition operators: `equals`, `not_equals`, `greater_than`, `less_than`, `in`, `not_in`, `contains`, `not_contains`, `exists`, `not_exists`
-
----
-
 ## Cost Estimates
 
 CloudGuardian is designed to be cost-efficient. Approximate monthly costs for a typical single-account setup:
